@@ -70,9 +70,16 @@ export function Hero() {
 
         <motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.4 }} className="flex-shrink-0 relative">
           <div className="photo-ring">
-            <div className="photo-ring-inner">
-              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-indigo-600/20 via-purple-600/20 to-pink-600/20 flex items-center justify-center overflow-hidden">
-                <img src="/PHOTO.jpg" alt="Your Name" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; (e.target as HTMLImageElement).parentElement!.innerHTML = '<svg class="w-32 h-32 text-zinc-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>'; }} />
+             <div className="photo-ring-inner">
+               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-indigo-600/20 via-purple-600/20 to-pink-600/20 flex items-center justify-center overflow-hidden">
+                <img 
+                src="/PHOTO.jpg" 
+                alt="Your Name" 
+                className="w-full h-full object-cover" 
+                onError={(e) => { 
+                   console.error("Image failed to load:", (e.target as HTMLImageElement).src);
+                }}
+                />
               </div>
             </div>
           </div>
